@@ -1,8 +1,8 @@
 bine chore kuch milta bhi nahi hai bhai
 Padhai k liye serious hoja bhai!
 Kitab se ab dosrti kar
-Is duniya mein sabse kam pdhna hai!
-PAdhne se sukh mita hai bhai!
+Is duniya mein sabse acha kam pdhna hai!
+Padhne se sukh mita hai bhai!
 1 year in dev
 JINDGAI SEROIUS MEIN HOJ ABHI
 99% pecentile hona chahiye tujhge
