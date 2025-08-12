@@ -43,7 +43,7 @@ THERE IS NO SPACE WHEN WE'RE MAKING THE ATTRIBUTES
 ![Pasted image 20250524192702.png](../../Images/Pasted%20image%2020250524192702.png)
 
 
-It created two files as well!
+It created two files as well! koi table lekin abhi bani nahi hai anyway
  Models folder mein airplane.js
 
 ```javascript
@@ -151,18 +151,18 @@ In this when that table will be created that table will have that constraints al
 
 Here maine model number par bd constraint rakha hai but capacity par nahi rakha!
 
-
+creation hua tha upar ab apply karna hai
 Now creating a migration and applying a migration are two different things!
 
 ![Pasted image 20250524202845.png](../../Images/Pasted%20image%2020250524202845.png)
-
+![image-14.png](../../Images/image-14.png)
 It applies all the pending migrations!
 ### How does `npx sequelize db:migrate` know which migrations are **pending**?
 
 Sequelize uses a special table in your database called:
 
 > **`SequelizeMeta`**
-
+![image-13.png](../../Images/image-13.png)
 ---
 
 ### ✅ Here's how it works:
@@ -282,6 +282,28 @@ When we do a migration async up is applied and when we undo , Async down functio
 
 So models is more related to js
 and Migrations is more related to tables
+
+
+Now If i make a change in the code and did db:migrate then what will happen is that
+
+But **if you just edited the old migration file and ran `db:migrate` again**, Sequelize will **not rerun the migration** — because it's already marked as "executed" in the `SequelizeMeta` table.
+
+## 🛑 Problem:
+
+Sequelize **does not re-run edited migration files** unless you **undo** them first.
+
+---
+
+## ✅ Solution (Clean + Safe):
+
+Here’s how to properly update the DB schema when you modify a migration:
+
+![image-15.png](../../Images/image-15.png)
+
+
+PURANI MIGRATION FILE MEIN KOI CHANGE NAHI KARNA!! MIGRATION FILE HI BNTI HAI! SINCE database level changes kaffi rare hote hain anyway
+
+
 
 ![Pasted image 20250524221727.png](../../Images/Pasted%20image%2020250524221727.png)
 
@@ -477,9 +499,6 @@ This is a method provided by **Sequelize** (an ORM that lets you interact with a
 
 > For example, if `data` is:
 
-js
-
-CopyEdit
 
 `{ name: 'Sourav', age: 25 }`
 
@@ -627,7 +646,7 @@ So if you don’t use `express.json()`, then:
 ![Pasted image 20250527161050.png](../../Images/Pasted%20image%2020250527161050.png)
 ![Pasted image 20250527161257.png](../../Images/Pasted%20image%2020250527161257.png)![Pasted image 20250529151203.png](../../Images/Pasted%20image%2020250529151203.png)
 
-**es, you can change (or transform) the response object at any layer** — especially in the **service layer**, which is the best place to apply **business logic or transformation**.
+You can change (or transform) the response object at any layer** — especially in the **service layer**, which is the best place to apply **business logic or transformation**.
 
 ---
 
