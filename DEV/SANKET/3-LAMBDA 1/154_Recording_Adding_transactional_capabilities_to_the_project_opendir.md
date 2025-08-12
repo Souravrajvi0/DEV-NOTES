@@ -22,7 +22,7 @@ Problems!!
 
 ## IMAGE 1: "Unhappy paths"
 
-(From the image named `0baa52f9-c8cd-4a68-9eea-80a17cc9e89d.png`)
+
 
 ### 💡 Core Point:
 
@@ -434,4 +434,99 @@ After your flight ticket is booked and payment is done, the system **must not fo
 
 
 ![image-119.png](../../Images/image-119.png)
+
+## 1. ✅ CRUD Operations
+
+**CRUD** is the foundation of interacting with any database:
+
+|Operation|Meaning|Example|
+|---|---|---|
+|C|Create|INSERT INTO users (...)|
+|R|Read|SELECT * FROM users|
+|U|Update|UPDATE users SET name='John'|
+|D|Delete|DELETE FROM users WHERE id=1|
+
+🔁 All operations in a transaction are combinations of **Read** and **Write** (CUD).
+
+
+![image-192.png](../../Images/image-192.png)
+
+
+| State              | Description                                      |
+| ------------------ | ------------------------------------------------ |
+| Begin              | Transaction starts                               |
+| Active             | Performing read/write operations                 |
+| Partially Complete | All steps done but not yet committed             |
+| Commit             | All good, changes saved permanently              |
+| Failed → Abort     | Something broke, go to rollback                  |
+| Rollback           | Undo all changes and revert DB to original state |
+|                    |                                                  |
+|                    |                                                  |
+|                    |                                                  |
+🧠 Always use **transactions** to preserve data integrity when things go wrong.
+## 3. 🧪 ACID Properties of Transactions
+
+|Property|Meaning|Example|
+|---|---|---|
+|Atomicity|All or nothing|A → B transfer: both balances update or none|
+|Consistency|DB moves from one valid state to another|Foreign keys, constraints always maintained|
+|Isolation|Transactions run independently (no dirty interference)|A reads balance, B modifies it — A should not see uncommitted change|
+|Durability|Once committed, it survives crashes|Power outage? Committed data is still saved|
+
+
+## 4. 🛑 Concurrency Issues
+
+|Issue|Explanation|Example|
+|---|---|---|
+|🔴 Lost Update|Two transactions overwrite each other|T1 and T2 both update x → one update gets lost|
+|🟡 Dirty Read|Read data written by another uncommitted transaction|T2 reads a value T1 wrote but T1 rolls back|
+|🟠 Non-repeatable Read|Same query gives different results within one transaction|T1 reads x → T2 updates x → T1 reads x again and sees different value|
+|🟣 Phantom Read|Re-running a query gives extra/missing rows|T1 sees 3 rows → T2 adds one → T1 sees 4 rows|
+
+
+## 5. 🔒 Isolation Levels
+
+|Level|Dirty Read|Non-repeatable Read|Phantom Read|
+|---|---|---|---|
+|Read Uncommitted|❌ Allowed|❌|❌|
+|Read Committed|✅ Avoided|❌|❌|
+|Repeatable Read|✅|✅|❌|
+|Serializable|✅|✅|✅|
+
+📌 Tradeoff: Higher isolation = fewer anomalies but lower performance.
+
+
+![image-193.png](../../Images/image-193.png)
+
+![image-194.png](../../Images/image-194.png)
+
+## 9. ⚖️ Serializability (Conflict & View)
+
+### 🔹 Conflict Serializable
+
+A schedule can be rearranged to look like one-at-a-time execution by swapping non-conflicting operations.
+
+Use **precedence graph**:
+
+- Nodes = transactions
+    
+- Edge Ti → Tj if Ti’s operation conflicts with Tj's and comes before it
+    
+
+🧠 If cycle exists → not conflict-serializable!
+
+### 🔹 View Serializable
+
+Weaker condition:
+
+- Same initial reads
+    
+- Same final writes
+    
+- Same read-from mapping
+    
+
+More flexible, but harder to check.
+
+
 
