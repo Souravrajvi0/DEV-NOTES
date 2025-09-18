@@ -18,22 +18,13 @@ view-count: 5
 
 - Divides the first operand by the second. JavaScript converts strings to numbers if possible.
 - **Example**:
-    
-    
-    
     `10 / 2       // Result: 5= 10 / "2"     // Result: 5 "10" / "2"   // Result: 5`
-    
 
 ### 3. **Modulus (`%`)**
 
 - Returns the remainder after division.
 - **Example**:
-    
-    
-    
     `10 % 3       // Result: 1 =10 % "3"     // Result: 1 (string "3" is converted to number 3)`
-    
-
 ### 4. **Exponentiation (`**`)**
 
 - Raises the first operand to the power of the second.
@@ -84,7 +75,7 @@ view-count: 5
 - **Example**:
 
     `true && false    // Result: false false || "hello" // Result: "hello" !true            // Result: false`
-    
+
 
 ### 9. **Nullish Coalescing (`??`)**
 
