@@ -49,7 +49,6 @@ Here, even though `car` is declared with `const`, we can change its properties a
 
 ### Example with an Array
 
-
 ```javascript
 // Declaring a constant array
 const numbers = [1, 2, 3];
@@ -67,8 +66,7 @@ numbers = [5, 6, 7]; // ❌ Error: Assignment to constant variable
 ```
 
 
-
-![Untitled 72.png](../../Images/Untitled%2072.png)
+![Untitled 72.png|1083x516](../../Images/Untitled%2072.png)
 
 ![Untitled 1 62.png](../../Images/Untitled%201%2062.png)
 
@@ -85,13 +83,23 @@ Global Scope:→
 ![Untitled 5 36.png](../../Images/Untitled%205%2036.png)
 ->YAHAN ERROR AEGA FOR SURE
 ![Untitled 6 34.png](../../Images/Untitled%206%2034.png)
+The error occurs on **line 1** because of the **Temporal Dead Zone**:
 
+- Variables declared with `let` and `const` are hoisted but not initialized
+    
+- They cannot be accessed before their declaration line
+    
+- From the start of the scope until the declaration, the variable exists in a "dead zone"
+    
+
+If you were to **fix the code** by removing or commenting out line 1:
 ![Untitled 7 29.png](../../Images/Untitled%207%2029.png)
 INTRESTING
 ![Untitled 8 26.png](../../Images/Untitled%208%2026.png)
 
 ![Untitled 9 21.png](../../Images/Untitled%209%2021.png)
 ->MEANING KI AGAR INITIALIZATION NAHI KIYA TOH IN THAT CASE KI DECLARATION SE PEHLE USE KAR SAKTE HAIN KYONKI GLOBAL SCOPE HAI!!
+
 ![Untitled 10 20.png](../../Images/Untitled%2010%2020.png)
 
 ->Var only declares function and global scoped Variables no block scope variables are created, Block mein koi var variable declare kiya toh uss case mein hum bahar use kar skte hain block k
@@ -108,7 +116,7 @@ INTRESTING
 if (false) {
     var x = 10;
 }
-console.log(x); // Output: undefined
+console.log(x); // Output: 10
 ```
 
 
