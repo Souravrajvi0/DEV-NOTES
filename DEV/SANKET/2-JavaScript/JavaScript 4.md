@@ -48,25 +48,12 @@ But there is a mechanism by which JS is able to handle Asynchronous piece of cod
 ![Untitled 11 19.png](../../Images/Untitled%2011%2019.png)
 
 →But yahan kya hoga ki hi and by pehle print ho jayega and 5 sec bad time done print hoga
-
-  
-
 →In order to run a valid piece of javascript code then there are a lot of functionalities and libraries are required,all of these of functionalities are given to JS by the run time
-
-  
-
 →JS+Runtime(node,Browser)→ MAKES IT SO GOOD
-
 →Even though the browser is a runtime for JS,Browser provides a lot of features that are not native to javascript.
-
 →Using JS code we can modify the html but these functions are not native to JS.
-
 →JS is synchronouss in nature for the piece of code that is native to JS. Uske alawa Js synchronus nahi hai
-
 →Settimeout nahi hai ecma script mein
-
-→
-
 ![Untitled 12 17.png](../../Images/Untitled%2012%2017.png)
 
 ![Untitled 13 11.png](../../Images/Untitled%2013%2011.png)
