@@ -7,7 +7,7 @@ Before Hooks (introduced in React 16.8), state and lifecycle methods were only a
 Hooks changed that → now **functional components can do everything class components can**.
 
 
-![image-989.png](../../../Images/image-989.png)
+![711x668](../../../Images/image-989.png)
 
 
 ### 💡 Why Hooks are powerful:
@@ -72,7 +72,6 @@ const [stateVariable, setStateFunction] = useState(initialValue);
 - `setStateFunction` → a function to change the value.
     
 - `initialValue` → starting/default value (only used on the very first render).
-
 ## 4. Example: Counter with `useState`
 
 ```js
@@ -93,8 +92,8 @@ function Counter() {
     </div>
   );
 }
-
 ```
+
 
 
 ### What happens?
@@ -183,9 +182,6 @@ If **any one** of these state variables changes (`name`, `age`, or `isOnline`),
 ![image-991.png](../../../Images/image-991.png)
 
 ![image-992.png](../../../Images/image-992.png)
-
-
-
 ## 1. What is the frontend’s main job?
 
 The **frontend** is the _interface_ between the user and the system.
@@ -213,36 +209,24 @@ So whenever you interact with a frontend (like Zomato, Swiggy, Amazon, YouTube),
     - Example: Clicking _play_ on a YouTube video → you’re asking “give me this video’s data.”
         
     - Example: Scrolling → app learns what you’re looking at.
-
-
-
 ## 3. How this works technically
 
 1. **User action on frontend** → User clicks a button, submits a form, or selects an item.
-    
 2. **Frontend captures the event** → In React/JS, we attach event listeners (`onClick`, `onChange`, etc.).
-    
 3. **Frontend sends request to backend (API)** → Usually via HTTP/HTTPS request.
-    
     - Example: `GET /restaurants/123` → fetch restaurant details.
-        
     - Example: `POST /login` → send login data.
-        
 4. **Backend processes and sends response** → The database + business logic runs.
-    
 5. **Frontend updates the UI with response** → Shows restaurant menu, confirms login, etc.
 
+
 ![image-993.png](../../../Images/image-993.png)
-
-
-
 
 ## . Why do we need state in React?
 
 When a user interacts with the app (clicks, types, selects something), that data should be **remembered** so the UI can update accordingly.
 
 - A **state variable** is where React stores this data.
-    
 - Whenever state changes, React **re-renders** the component to reflect the new data.
 
 ## . Accessing the data elsewhere
@@ -372,7 +356,7 @@ React by itself is only a **UI library**. It doesn’t know how to:
 - Change the URL without reload
     
 - Handle navigation (Home → About → Contact, etc.)
-    
+
 
 👉 **React Router** is a library that adds this missing functionality.  
 It lets you create “multiple pages” in your **Single Page Application (SPA)** by swapping components based on the URL.
@@ -486,6 +470,7 @@ So:
         
 - `to="/"` → means “when clicked, go to `/` and show the matching route.”
 
+![image-1083.png](../../../Images/image-1083.png)
 
 ## 🔄 How React Router works (step by step)
 
@@ -674,6 +659,10 @@ This gives you **logic + navigation together**.
     
 - **`<Navigate />`** = you use it _in JSX directly_ to cause an instant redirect.
 
+
+
+## PASSING VALUES
+
 ![image-998.png](../../../Images/image-998.png)
 
 - **Path params** (a.k.a. dynamic segments) → `/users/:id`
@@ -691,7 +680,6 @@ This gives you **logic + navigation together**.
 **When:** The value is part of the page’s identity (resource ID, slug).  
 **Pros:** Bookmarkable, sharable, refresh-safe, SEO-friendly.  
 **Cons:** Hierarchical, not great for lots of optional filters.
-
 
 
 ![image-999.png](../../../Images/image-999.png)
@@ -736,16 +724,12 @@ export default function SearchPage() {
 
 ```
 
-
 ### Tips
-
 - Use `encodeURIComponent` if building URLs manually.
     
 - Keep query params as the **source of truth** for filters—this makes the UI shareable and back/forward friendly.
     
 - Treat values as strings; convert to booleans/numbers/dates as needed.
-
-
 
 ## 3) `useLocation()` and `location.state`
 
@@ -786,25 +770,25 @@ STATE MANAGEMENT LIBRARIES
 - **What it is**: A built-in React feature (no extra library needed). Lets you avoid “prop drilling” by sharing state across components.
     
 - **Use case**:
-    
+
     - When your app has **simple to moderate state management needs**.
-        
+
     - Example: Theme (light/dark), user authentication info, language settings.
-        
+
 - **Pros**:
-    
+
     - No extra setup.
-        
+    
     - Simple for small-to-medium apps.
-        
+    
     - Less boilerplate than Redux.
-        
+    
 - **Cons**:
     
     - When state updates are frequent and across many components, Context can cause **unnecessary re-renders**.
-        
+    
     - Debugging tools are limited compared to Redux.
-        
+
 
 ---
 
