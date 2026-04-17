@@ -34,9 +34,7 @@ Remember: JSX → compiled into `React.createElement(...)`.
 ![image-950.png](../../../Images/image-950.png)
 
 The above `Button` always says **“Click Me”** → not flexible.
-
 We want it to work in different places with **different labels or behavior**.
-
 So, instead of hardcoding, we want to **parameterize** the component.
 
 ![image-951.png](../../../Images/image-951.png)
@@ -44,7 +42,7 @@ So, instead of hardcoding, we want to **parameterize** the component.
 
 
 ![image-953.png](../../../Images/image-953.png)
-
+![image-1077.png](../../../Images/image-1077.png)
 ![image-954.png](../../../Images/image-954.png)
 
 
@@ -89,7 +87,7 @@ export default function App() {
 ## PROBLEM
 
 ![image-955.png](../../../Images/image-955.png)
-
+Button with a value like prop.label
 
 ![image-956.png](../../../Images/image-956.png)
 
@@ -104,6 +102,23 @@ export default function App() {
 ![image-960.png](../../../Images/image-960.png)
 
 ![image-961.png](../../../Images/image-961.png)
+
+
+In React, **props can be of any type** — string, number, boolean, object, array, function, even JSX.
+
+![image-1078.png](../../../Images/image-1078.png)
+
+
+Yes, you can pass **JSX** as a prop, because JSX is just **syntactic sugar for `React.createElement()`**, and at runtime it becomes a plain JavaScript object (a React element).
+
+
+![image-1079.png](../../../Images/image-1079.png)
+
+
+![image-1080.png](../../../Images/image-1080.png)
+![image-1081.png](../../../Images/image-1081.png)
+
+
 
 
 A **reusable button** should **only care about rendering itself and detecting a click** — it shouldn’t decide what happens _after_ the click.
@@ -184,7 +199,7 @@ Hmare button ka kam chizon ko expect karna naki unko implement karna!!!
 
 
 
-And har badi company ki apni styling library hoti hai mostly
+And har badi company ki apni styling library hoti hai mostly tabhi unki sabhi buttons same dikhte hain bhai!
 
 ## Tailwind Works So Well with React
 
@@ -392,7 +407,11 @@ function UserProfilePresenter({ user }) {
 
 ```
 
+In the presenter-container pattern, yes, you typically return the presenter component directly from the container. This is the standard approach because:
 
+1. **Single Responsibility**: The container handles all the logic (data fetching, state management, side effects), while the presenter handles only the UI rendering.
+2. **Clean Separation**: The container "wraps" the presenter, so returning the presenter is the natural flow - the container does its work and then delegates rendering to the presenter.
+3. **Reusability**: The presenter becomes a pure, reusable component that can be tested independently or used with different containers.
 ## 5. Benefits
 
 ✅ Clear separation:
@@ -456,7 +475,7 @@ Modern libraries like **Redux** or **Apollo Client** naturally encourage this se
 
 ## EXAMPLE
 
-## 1. The Container (first screenshot)
+## 1. The Container 
 ```jsx
 import TextInputForm from "./TextInputForm";
 
@@ -532,7 +551,12 @@ export default TextInputForm;
 
 ```
 
+ **Export the container** and typically **not the presenter**
+ **Why Export the Container?**
 
+1. **Public Interface**: The container is the "complete component" that other parts of your app should use
+2. **Encapsulation**: The presenter is an internal implementation detail
+3. **Logic Included**: When someone imports your component, they get the full functionality, not just the UI shell
 ### What’s happening here:
 
 - This is the **Presenter (Dumb Component)**.
@@ -785,7 +809,49 @@ React works on a **reactive model**:
 - When **props change** → React re-renders the child.
     
 - But with a plain `let` variable → React has **no clue** something changed.
-    
+
+## When Props Change → React Re-renders the Child
+
+
+```js
+function Parent() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+      <Child number={count} />  {/* Passing count as prop */}
+    </div>
+  );
+}
+
+function Child({ number }) {
+  console.log("Child re-rendered!");
+  return <p>Number: {number}</p>;
+}
+```
+
+
+
+**What happens:**
+
+1. User clicks button
+2. `count` state changes in Parent (0 → 1)
+3. Parent re-renders (because its state changed)
+4. During Parent's re-render, `<Child number={count} />` is called
+5. **Child receives new props** (`number` changed from 0 to 1)
+6. React detects props changed → **Child re-renders too**
+
+![image-1082.png](../../../Images/image-1082.png)
+
+## Key Points:
+
+- **Child doesn't have its own state changing** - it re-renders because it received different props
+- **Props are the "input"** to a component - when input changes, React assumes output might change too
+- This creates a **cascading effect** - one state change can trigger multiple component re-renders down the component tree
+
 
 So after you click “Show/Hide”:
 
@@ -811,10 +877,11 @@ React components **do not track normal variables** like `let`, `var`, or `const`
 ### 🧠 Why?
 
 - When React renders your component, it just **runs the function once**.
-    
+
 - Local variables (like `let inputType = "password"`) exist **only for that single render**.
-    
+
 - On the next render, React calls the function again → fresh variable → original value is again taken.
+
 
 ![image-986.png](../../../Images/image-986.png)
 
@@ -822,7 +889,7 @@ React components **do not track normal variables** like `let`, `var`, or `const`
 
 
 
-### even if component rerender again but the local variable will have the originall value not the new one so it's just a fucntion
+### Even if component rerender again but the local variable will have the original value not the new one so it's just a function
 
 
 - A **React component is just a function**.
