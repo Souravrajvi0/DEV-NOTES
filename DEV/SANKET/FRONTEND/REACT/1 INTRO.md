@@ -29,7 +29,7 @@ That’s the whole point of these technologies: they exist to make developers’
 - **Reusability** → Components/modules can be reused across the app.
     
 - **Better developer experience (DX)** → Cleaner syntax, helpful tools, structured patterns.
-    
+
 
 ### 🔹 Examples
 
@@ -44,8 +44,6 @@ That’s the whole point of these technologies: they exist to make developers’
 
 👉 The idea is simple:  
 **Developers can focus on business logic and features instead of wasting time on repetitive low-level details.**
-
-
 
 
 A **Single Page Application (SPA)** is a type of web app that **loads a single HTML page once** and then **updates the page dynamically** as the user interacts with it — instead of reloading the whole page from the server each time.
@@ -70,7 +68,6 @@ A **Single Page Application (SPA)** is a type of web app that **loads a single H
 
 
 Whatever done here is done using js, single html download hoga and any change will be  driven by js!!
-
 
 
 ### 🔹 Example
@@ -144,7 +141,7 @@ React solves this by saying:
 4. **Separation of concerns** → Each component manages its own state & logic.
     
 5. **Consistency** → Same component = same behavior everywhere.
-    
+
 
 ---
 
@@ -296,7 +293,6 @@ Then, depending on the platform:
         - `ReactDOM.createRoot(container).render(element)`
             
         - `ReactDOM.hydrate()` (for server-side rendering)
-            
     
     👉 ReactDOM takes the React Elements created by React Core and actually **creates/updates the real DOM nodes** inside the browser.
 
@@ -326,17 +322,11 @@ So after this, React knows:
 ### 🔹 Step 3: `.render(element)`
 
 - Now you give React **what you want to show**.
-    
 - Here, `element` is a **React Element object** (like `{ type: "h1", props: { children: "Hello" } }`).
-    
 - React takes this element and:
-    
     1. Puts it into the **Virtual DOM**.
-        
     2. Compares it with the current Virtual DOM (diffing).
-        
     3. Creates the **real DOM nodes** (`<h1>Hello</h1>`) only where needed.
-        
     4. Injects those nodes into the container (`#root`).
 
 ### 🔹 Analogy
@@ -499,12 +489,12 @@ We use JSX **not because React requires it**, but because **humans require it** 
 ## 🔹 JSX (JavaScript XML)
 
 - JSX is a **syntax extension** to JavaScript.
-    
+
 - It lets you **write HTML-like code inside JavaScript**.
-    
+
 - It is **not valid JS by itself** — browsers don’t understand JSX.
-    
-- A tool (like **Babel**) **transpiles** JSX into plain JavaScript (`React.createElement`) before the browser runs it.
+
+- A tool (like **Babel**) **Transpiles** JSX into plain JavaScript (`React.createElement`) before the browser runs it.
 
 JSX → (transpilation using Babel) → JavaScript → (executed by browser).
 
@@ -515,7 +505,7 @@ JSX → (transpilation using Babel) → JavaScript → (executed by browser).
     
 - They only understand **plain JS**.
     
-- Babel acts as a “translator” to convert JSX → JS.
+- Babel acts as a “translator” to convert JSX → JS. 
 
 ![image-916.png](../../../Images/image-916.png)
 
@@ -545,7 +535,6 @@ JSX → (transpilation using Babel) → JavaScript → (executed by browser).
 - JSX is just **syntactic sugar** → a nicer way to write `React.createElement(...)`.
     
 - JSX code is transpiled (by **Babel**) into **plain JavaScript** that React can understand like the functions we just talked about above 
-    
 
 ---
 

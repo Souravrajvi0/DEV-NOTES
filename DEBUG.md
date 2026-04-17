@@ -1,4 +1,4 @@
-```javascript
+
 # 🧠 Node.js Debugging Cheat Sheet
 
 ## 1. 🐞 Read the Error Message
@@ -103,3 +103,7 @@ console.log("[AirportService] response: ", response);
 ---
 > ✍️ Pro Tip: After solving the issue, write **"What was wrong and why"** in your daily dev diary or `mistakes.md` file in Obsidian.
 ```
+
+
+
+
