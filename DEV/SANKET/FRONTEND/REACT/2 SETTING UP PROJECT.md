@@ -1,9 +1,9 @@
 - **Minimalistic frameworks (like Svelte, Solid, etc.)**
-    
+
     - Pros → small bundle size, fast performance, less overhead.
-        
+
     - Cons → fewer built-in tools, smaller ecosystem, you spend more time wiring things up yourself.
-        
+
 - **Feature-rich frameworks/libraries (like React, Angular, Next.js, Vue)**
     
     - Pros → huge ecosystem, tons of pre-built libraries/components, great tooling, active community. This means **faster development and shipping** when business deadlines matter.
@@ -61,23 +61,23 @@ At its core, **Vite is a development server + build system** that makes working 
 ### 🔑 What Vite does
 
 1. **Development server (super fast)**
-    
+
     - Uses **native ES modules (ESM)** in the browser, so you don’t need to bundle everything before starting.
-        
+
     - Starts almost instantly, no matter how big your app is.
-        
+
     - Uses **esbuild (written in Go)** for lightning-fast transformations (JSX → JS, TS → JS).
-        
+
 2. **Production build**
-    
+
     - Uses **Rollup** internally to create optimized bundles for production (tree-shaking, minification, code-splitting).
-        
+
 3. **Out-of-the-box features**
-    
+
     - Hot Module Replacement (HMR) → updates only the changed module instantly without refreshing the whole page.
-        
+
     - TypeScript, JSX, CSS, PostCSS, and even Vue/Svelte support built-in.
-        
+
     - Environment variables and mode-based configs (`.env`).
 
 
@@ -117,7 +117,7 @@ Vite = **fast dev server** (uses native ESM) + **optimized production bundler** 
 - In React, you make it a **component**:
 
 
-### 3. Benefits
+###  3. Benefits
 
 ✅ No duplicate markup or logic.  
 ✅ Easy to maintain (single source of truth).  
@@ -125,12 +125,9 @@ Vite = **fast dev server** (uses native ESM) + **optimized production bundler** 
 ✅ Reusable building blocks → **Lego-like architecture**.
 
 ---
-
 ### 🔹 4. Beyond UI → Logic reuse
 
 React also supports **custom hooks** (`useFetch`, `useAuth`, etc.) so you can share logic across components without duplicating it.
-
-
 
 ## **What is a Component in React?**
 
@@ -440,7 +437,7 @@ You attach `export` **right where you define it**:
 
 ```js
 // UserUtils.js
-export function formatName(user) {
+ export function formatName(user) {
   return `${user.firstName} ${user.lastName}`;
 }
 
